@@ -26,7 +26,7 @@
         }
 
         #login-dp {
-            min-width: 250px;
+            min-width: 300px;
             padding: 14px 14px 0;
             overflow: hidden;
             background-color: rgba(255, 255, 255, .8);
@@ -95,10 +95,13 @@
         .footer-custom {
             text-align: center;
             background-color: #FFFFFF;
-            position: absolute;
-            width: 100%;
+            /* position: absolute; */
             bottom: 0;
-            padding: 20px;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
         }
 
         .stick-bottm {
@@ -247,7 +250,70 @@
             opacity: 0.8;
         }
 
+        .hover-settings:hover {
+            opacity: 0.7;
+        }
+
+        .text_quotes_second {
+            text-align: center;
+            display: none;
+        }
+
+        .frame-icon-main {
+            width: 100px;
+        }
+
+        .change-width {
+            width: 100px;
+        }
+
+        .sidenav {
+            height: 200px;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #FFF2F2;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #0f1ae2;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .force-width {}
+
+        #mySidenav {
+            display: none;
+        }
+
         @media only screen and (max-width: 768px) {
+
+            #mySidenav {
+                display: block;
+            }
+
+            .footer-custom {}
 
             #focus-btn,
             #long-btn,
@@ -312,35 +378,27 @@
                 display: none;
             }
 
+
             .topnav .hidden-responsive-login {
                 display: none;
             }
 
-       
-        }
 
-        .text_quotes_second {
-            text-align: center;
-            display: none;
-        }
-
-        .frame-icon-main {
-            width: 100px;
-        }
-
-        .change-width {
-            width: 100px;
         }
     </style>
 </head>
 
 <body id="body-backkgound">
+
+
     <div class="stick-bottom">
 
         <nav class="navbar navbar-default navbar-background  topnav" role="navigation">
 
             <div class="container-fluid ">
-                <a href="javascript:void(0);" class="icon_menu" onclick="myFunction()">
+
+
+                <a href="javascript:void(0);" class="icon_menu" onclick="openNav()">
                     <i class="fa fa-bars"></i>
                 </a>
 
@@ -349,20 +407,24 @@
                         <img width="150" src="{{ URL('images/Light.png') }}"
                             alt="{{ URL('images/no-pictures.png') }}" class="img-main-icon" onclick="reloadAllPages()">
                     </li>
-                    <li>
-
-                    </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
 
                     <p class="navbar-text">Login to change your favourite quotes</p>
-                    </li>
+
 
                     <li class="dropdown hidden-responsive-settings">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b
-                                style="color:black">Settings</b> <span class="caret"></span></a>
-                        <ul id="login-dp" class="dropdown-menu">
+                        <a href="#" class="dropdown-toggle hover-settings" data-toggle="modal"
+                            data-target="#myModalSettings"><b style="color:black">Settings</b> <span
+                                class="fa fa-cogs"></span></span></a>
+
+
+                        {{-- Start --}}
+
+
+
+                        {{-- <ul id="login-dp" class="dropdown-menu">
                             <div id="timeShowHidden">
                                 <li>
                                     <div class="row">
@@ -411,13 +473,14 @@
                                     </div>
                                 </li>
                             </div>
-                        </ul>
+                        </ul> --}}
+
                     </li>
 
                     <li class="dropdown hidden-responsive-login">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b
-                                style="color:black">Login</b> <span class="caret"></span></a>
-                        <ul id="login-dp" class="dropdown-menu">
+                        <a href="#" data-toggle="modal" data-target="#myModalChangeTime"><b
+                                style="color:black">Login</b> <span class="fa fa-sign-in"></span></a>
+                        {{-- <ul id="login-dp" class="dropdown-menu">
                             <li>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -439,8 +502,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                                <input type="password" class="form-control"
-                                                    id="exampleInputPassword2" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="exampleInputPassword2"
+                                                    placeholder="Password" required>
                                                 <div class="help-block text-right"><a href="">Forget the
                                                         password
                                                         ?</a></div>
@@ -461,7 +524,7 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> --}}
 
                     </li>
                 </ul>
@@ -473,34 +536,157 @@
         </nav>
 
 
-        <div class="footer-custom">
-            <footer>
-                <h5 style="color: #471515">
-                    <img src="{{ URL('images/author.png') }}" width="20">
-                    Author: Peter Hoang Bach
-                </h5>
-                <h5>
-                    <img src="{{ URL('images/support.png') }}" width="20">
-                    Support:pomodorosmart@gmail.com
-                </h5>
 
-            </footer>
-        </div>
 
 
     </div>
+
+    {{-- quotes for mobile --}}
 
     <div>
         <p class="text_quotes_second">Login to change your favourite quotes</p>
 
     </div>
+
+    {{-- Span --}}
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" class="force-width" data-toggle="modal" data-target="#myModalSettings"><b
+                style="color:black">Settings</b> <span class="fa fa-cogs"></span></span></a>
+
+        <a href="#" data-toggle="modal" data-target="#myModalChangeTime"><b style="color:black">Login</b> <span
+                class="fa fa-sign-in force-width"></span></a>
+    </div>
+
+    {{-- Span --}}
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModalSettings" role="dialog">
+            <div class="modal-dialog modal-sm">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Change Pomodoro Time</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="social-buttons" style="text-align: center">
+                            <img src="{{ URL('images/pomodoro-technique.png') }}" width="35"
+                                alt="{{ URL('images/no-pictures.png') }}">
+                        </div>
+                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8"
+                            id="login-nav">
+                            <div class="form-group">
+                                <p>Pomo Time</p>
+                                <label class="sr-only" for="exampleInputEmail2">Pomo
+                                    Time</label>
+                                <input type="number" class="form-control" id="pomo-time" placeholder="Pomo Time"
+                                    required min="1" max="2">
+                            </div>
+                            <div class="form-group">
+                                <p>Short Break</p>
+                                <label class="sr-only" for="exampleInputEmail2">Short
+                                    Break</label>
+                                <input type="number" class="form-control" id="short-time" placeholder="Short Break"
+                                    required min="1" max="2">
+                            </div>
+                            <div class="form-group">
+                                <p>Long Break</p>
+                                <label class="sr-only" for="exampleInputPassword2">Long
+                                    Break</label>
+                                <input type="number" class="form-control" id="long-time" placeholder="Long Break"
+                                    required min="1" max="2">
+                            </div>
+
+                            <div class="form-group" data-toggle="dropdown">
+                                <button class="btn btn-primary btn-block" onclick="clickCounter()"
+                                    type="button">Save</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModalChangeTime" role="dialog">
+            <div class="modal-dialog modal-sm">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Login to change quotes</h4>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{-- Login via
+                                        <div class="social-buttons">
+                                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>
+                                                Facebook</a>
+                                            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i>
+                                                Twitter</a>
+                                        </div>
+                                        or --}}
+                                <form class="form" role="form" method="post" action="login.php"
+                                    accept-charset="UTF-8" id="login-nav">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputEmail2">Email
+                                            address</label>
+                                        <input type="email" class="form-control" id=""
+                                            placeholder="Email address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword2"
+                                            placeholder="Password" required>
+                                        <div class="help-block text-right"><a href="">Forget the
+                                                password
+                                                ?</a></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Sign
+                                            in</button>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Keep me logged-in
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="bottom text-center">
+                                New member ? <a href="#"><b>Register</b></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    {{-- End --}}
+
     <div class="btn-group">
-        {{-- <button id="focus-btn"  class="button button1">
-            <img src="{{ URL('images/focus.svg') }}" alt="{{ URL('images/focus.svg') }}">
-            Focus
-        </button>
-        <button class="button button1">2px</button>
-        <button class="button button1">2px</button> --}}
         <img id="focus-btn" onclick="clickToChange()" src="{{ URL('images/focus_svg.svg') }}"
             alt="{{ URL('images/no-pictures.png') }}">
         <img id="short-btn" src="{{ URL('images/short_svg.svg') }}" alt="{{ URL('images/no-pictures.png') }}"
@@ -512,8 +698,6 @@
     <div class="parent-frame-time" id="parent-frame-time-focus-id">
         <div class="frame-time">
             <h1 class="time" id="time-js-focus"> </h1>
-            {{-- <h1 class="time" id="time-js-short" style="color = green"> </h1>
-            <h1 class="time" id="time-js-long" style="color = green"> </h1> --}}
             <div class="btn-play-pause-frame">
                 <img onclick="stopBtn()" class="play-pause-btn" id="btn-pause"
                     src="{{ URL('images/pause-button.png') }}" alt="{{ URL('images/no-pictures.png') }}">
@@ -558,6 +742,21 @@
         <source src="{{ URL('sounds/Finish.wav') }}" type="audio/wav">
     </audio>
 
+
+
+    <div class="footer-custom">
+        <footer>
+            <h5 style="color: #471515">
+                <img src="{{ URL('images/author.png') }}" width="20">
+                Author: Peter Hoang Bach
+            </h5>
+            <h5>
+                <img src="{{ URL('images/support.png') }}" width="20">
+                Support:pomodorosmart@gmail.com
+            </h5>
+
+        </footer>
+    </div>
     <script>
         //Assign values to form settings
         document.querySelector('#pomo-time').value = window.localStorage.getItem("pomo") ? window.localStorage.getItem(
@@ -1001,6 +1200,14 @@
 
         function reloadAllPages() {
             location.reload();
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "200px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
         }
     </script>
 </body>
