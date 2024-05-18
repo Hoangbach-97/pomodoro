@@ -25,7 +25,7 @@
             <div class="container-fluid ">
 
 
-                <a href="" class="icon_menu" id="clickMenuSmall">
+                <a  href="#" class="icon_menu" id="clickMenuSmall">
                     <i class="fa fa-bars"></i>
                 </a>
 
@@ -44,116 +44,18 @@
                     data-target="#myModalQuotes">Change quotes</p>
 
                     <li class="dropdown hidden-responsive-settings">
-                        <a href="" class="dropdown-toggle hover-settings" data-toggle="modal"
+                        <a href="#" class="dropdown-toggle hover-settings" data-toggle="modal"
                             data-target="#myModalSettings"><b style="color:black">Settings</b> <span
                                 class="fa fa-cogs"></span></span></a>
 
 
                         {{-- Start --}}
 
-
-
-                        {{-- <ul id="login-dp" class="dropdown-menu">
-                            <div id="timeShowHidden">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div style="text-align: center">
-                                                <p style="color: #59b5fa">
-                                                    Update Timing
-                                                </p>
-                                            </div>
-                                            <div class="social-buttons" style="text-align: center">
-                                                <img src="{{ URL('images/pomodoro-technique.png') }}" width="35"
-                                                    alt="{{ URL('images/no-pictures.png') }}">
-                                            </div>
-                                            <form class="form" role="form" method="post" action="login"
-                                                accept-charset="UTF-8" id="login-nav">
-                                                <div class="form-group">
-                                                    <p>Pomo Time</p>
-                                                    <label class="sr-only" for="exampleInputEmail2">Pomo
-                                                        Time</label>
-                                                    <input type="number" class="form-control" id="pomo-time"
-                                                        placeholder="Pomo Time" required min="1" max="2">
-                                                </div>
-                                                <div class="form-group">
-                                                    <p>Short Break</p>
-                                                    <label class="sr-only" for="exampleInputEmail2">Short
-                                                        Break</label>
-                                                    <input type="number" class="form-control" id="short-time"
-                                                        placeholder="Short Break" required min="1"
-                                                        max="2">
-                                                </div>
-                                                <div class="form-group">
-                                                    <p>Long Break</p>
-                                                    <label class="sr-only" for="exampleInputPassword2">Long
-                                                        Break</label>
-                                                    <input type="number" class="form-control" id="long-time"
-                                                        placeholder="Long Break" required min="1" max="2">
-                                                </div>
-
-                                                <div class="form-group" data-toggle="dropdown">
-                                                    <button class="btn btn-primary btn-block" onclick="clickCounter()"
-                                                        type="button">Save</button>
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                            </div>
-                        </ul> --}}
-
                     </li>
 
                     <li class="dropdown hidden-responsive-login">
-                        <a href="" data-toggle="modal" data-target="#myModalChangeTime"><b
+                        <a href="#" data-toggle="modal" data-target="#myModalChangeTime"><b
                                 style="color:black">Login</b> <span class="fa fa-sign-in"></span></a>
-                        {{-- <ul id="login-dp" class="dropdown-menu">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Login via
-                                        <div class="social-buttons">
-                                            <a href="" class="btn btn-fb"><i class="fa fa-facebook"></i>
-                                                Facebook</a>
-                                            <a href="" class="btn btn-tw"><i class="fa fa-twitter"></i>
-                                                Twitter</a>
-                                        </div>
-                                        or
-                                        <form class="form" role="form" method="post" action="login.php"
-                                            accept-charset="UTF-8" id="login-nav">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputEmail2">Email
-                                                    address</label>
-                                                <input type="email" class="form-control" id=""
-                                                    placeholder="Email address" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword2"
-                                                    placeholder="Password" required>
-                                                <div class="help-block text-right"><a href="">Forget the
-                                                        password
-                                                        ?</a></div>
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-primary btn-block">Sign
-                                                    in</button>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Keep me logged-in
-                                                </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="bottom text-center">
-                                        New member ? <a href=""><b>Register</b></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul> --}}
 
                     </li>
                 </ul>
@@ -189,11 +91,11 @@
 
     {{-- Span --}}
     <div id="mySidenav" class="sidenav">
-        <a href="" class="closebtn" id="closeSmall">&times;</a>
-        <a href="" class="force-width" data-toggle="modal" data-target="#myModalSettings"><b
+        <a href="#" class="closebtn" id="closeSmall">&times;</a>
+        <a href="#" class="force-width" data-toggle="modal" data-target="#myModalSettings"><b
                 style="color:black">Settings</b> <span class="fa fa-cogs"></span></span></a>
 
-        <a href="" data-toggle="modal" data-target="#myModalChangeTime"><b style="color:black">Login</b> <span
+        <a href="#" data-toggle="modal" data-target="#myModalChangeTime"><b style="color:black">Login</b> <span
                 class="fa fa-sign-in force-width"></span></a>
     </div>
 
@@ -218,21 +120,21 @@
                             id="login-nav">
                             <div class="form-group">
                                 <p>Pomo Time</p>
-                                <label class="sr-only" for="exampleInputEmail2">Pomo
+                                <label class="sr-only" for="">Pomo
                                     Time</label>
                                 <input type="number" class="form-control" id="pomo-time" placeholder="Pomo Time"
                                     required min="25" max="120">
                             </div>
                             <div class="form-group">
                                 <p>Short Break</p>
-                                <label class="sr-only" for="exampleInputEmail2">Short
+                                <label class="sr-only" for="">Short
                                     Break</label>
                                 <input type="number" class="form-control" id="short-time" placeholder="Short Break"
                                     required min="5" max="10">
                             </div>
                             <div class="form-group">
                                 <p>Long Break</p>
-                                <label class="sr-only" for="exampleInputPassword2">Long
+                                <label class="sr-only" for="">Long
                                     Break</label>
                                 <input type="number" class="form-control" id="long-time" placeholder="Long Break"
                                     required min="15" max="20">
@@ -271,27 +173,18 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                {{-- Login via
-                                        <div class="social-buttons">
-                                            <a href="" class="btn btn-fb"><i class="fa fa-facebook"></i>
-                                                Facebook</a>
-                                            <a href="" class="btn btn-tw"><i class="fa fa-twitter"></i>
-                                                Twitter</a>
-                                        </div>
-                                        or --}}
                                 <form class="form" role="form" method="post" action="login.php"
                                     accept-charset="UTF-8" id="login-nav">
                                     <div class="form-group">
-                                        <label class="sr-only" for="exampleInputEmail2">Email
-                                            address</label>
-                                        <input type="email" class="form-control" id=""
-                                            placeholder="Email address" required>
+                                        <label class="sr-only" for="">Username</label>
+                                        <input type="text" class="form-control" id=""
+                                            placeholder="Enter an unique name" required>
                                     </div>
                                     <div class="form-group">
-                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword2"
+                                        <label class="sr-only" for="">Password</label>
+                                        <input type="password" class="form-control" id=""
                                             placeholder="Password" required>
-                                        <div class="help-block text-right"><a href="">Forget the
+                                        <div class="help-block text-right"><a href="#">Forget the
                                                 password
                                                 ?</a></div>
                                     </div>
@@ -307,13 +200,13 @@
                                 </form>
                             </div>
                             <div class="bottom text-center">
-                                New member ? <a href=""><b>Register</b></a>
+                                New member ? <a href="#"><b>Register</b></a>
                             </div>
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="idSaveQuotes">Save</button>
+                        {{-- <button type="button" class="btn btn-default" data-dismiss="modal" id="idSaveQuotes">Save</button> --}}
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
