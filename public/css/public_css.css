@@ -1,6 +1,10 @@
 body {
     background-color: #FFF2F2;
 }
+/* .container-fluid{
+    margin-left: 84px;
+    margin-right: 84px;
+} */
 
 #login-dp {
     min-width: 300px;
@@ -289,7 +293,7 @@ body {
     display: none;
 }
 
-.hover-quotes-login, .navbar-text-login:hover {
+.hover-quotes-login, .navbar-text:hover {
     opacity: 0.8;
     cursor: pointer;
 }
@@ -300,10 +304,22 @@ textarea {
         }
 
 .navbar-text-login{
-    display: none;
+    /* display: none; */
 }
 
 @media only screen and (max-width: 768px) {
+    .nav-item{
+        /* display: none; */
+    }
+    /* .container-fluid{
+        margin-left: 0px;
+        margin-right: 0px;
+    } */
+
+    .text_quotes_second-login{
+        text-align: center;
+        display: block;
+    }
 
     #mySidenav {
         display: block;
@@ -375,13 +391,15 @@ textarea {
         font-size: 20px !important
     }
 
-
-
     .topnav .navbar-text {
         display: none;
     }
 
     .topnav .hidden-responsive-settings {
+        display: none;
+    }
+
+    .topnav .nav-item{
         display: none;
     }
 

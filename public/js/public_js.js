@@ -32,11 +32,9 @@ function handleWorker(e) {
     } else if (window.getComputedStyle(minuteLongFrame).display != "none") {
         displayFrame = document.querySelector("#time-js-long");
     }
-    console.log("tick");
     if (e.data === "Done") {
         // isPlaying = false;
 
-        console.log("Done");
         startCountFocus();
         startCountLong();
         startCountShort();
@@ -44,14 +42,12 @@ function handleWorker(e) {
 
         if (window.getComputedStyle(minuteFocusFrame).display != "none") {
             countFocus++;
-            console.log("minuteFocus:" + countFocus);
             document.getElementById("btn-pause").style.display = "none";
             document.getElementById("btn-play").style.display = "inline";
 
             // Automatically change to short count <=4
 
             if (countFocus < 4) {
-                console.log("count focus <<<<<<<<<<<< 4");
                 document.getElementById("focus-btn").style.opacity = 0.5;
                 document.getElementById("short-btn").style.opacity = 1;
                 document.getElementById("long-btn").style.opacity = 0.5;
@@ -77,7 +73,6 @@ function handleWorker(e) {
 
             // Automatically change to long if count >4
             if (countFocus == 4) {
-                console.log("count focus ==== 4");
 
                 countFocus = 0; // reset
                 document.getElementById("focus-btn").style.opacity = 0.5;
@@ -107,13 +102,11 @@ function handleWorker(e) {
         ) {
             // displayFrame = document.querySelector("#time-js-short");
             countShort++;
-            console.log("countShort:" + countShort);
             document.getElementById("btn-pause-short").style.display = "none";
             document.getElementById("btn-play-short").style.display = "inline";
 
             // Automatically change to focus
             if (countShort == 1) {
-                console.log("count short=== 1");
 
                 countShort = 0;
 
@@ -141,7 +134,6 @@ function handleWorker(e) {
         } else if (window.getComputedStyle(minuteLongFrame).display != "none") {
             // displayFrame = document.querySelector("#time-js-long");
             countLong++;
-            console.log("countLong:" + countLong);
 
             document.getElementById("btn-pause-long").style.display = "none";
             document.getElementById("btn-play-long").style.display = "inline";
@@ -173,7 +165,6 @@ function handleWorker(e) {
         }
     } else if (Number.isInteger(e.data)) {
         _timer = e.data;
-        console.log("Not finished: " + _timer);
         var _minutes;
         var _seconds;
         _minutes = parseInt(_timer / 60, 10);
@@ -195,13 +186,11 @@ function handleMessage(e) {
 // Function to add event listener
 function startTimer() {
     worker.addEventListener("message", handleMessage);
-    console.log("worker started");
 }
 
 // Function to remove event listener
 function stopTimer() {
     worker.removeEventListener("message", handleMessage);
-    console.log("worker stopped");
 }
 startCountFocus();
 startCountShort();
@@ -263,7 +252,6 @@ function stopBtn() {
     document.getElementById("sound_play_pause").play();
 
     if (window.getComputedStyle(minuteFocusFrame).display != "none") {
-        console.log("clear focus");
         // if (isPlaying) {
         const messFocusStop = {
             action: "pause",
@@ -276,7 +264,6 @@ function stopBtn() {
         document.getElementById("btn-pause").style.display = "none";
         document.getElementById("btn-play").style.display = "inline";
     } else if (window.getComputedStyle(minuteShortFrame).display != "none") {
-        console.log("clear short");
         // if (isPlaying) {
         const messShortStop = {
             action: "pause",
@@ -289,7 +276,6 @@ function stopBtn() {
         document.getElementById("btn-pause-short").style.display = "none";
         document.getElementById("btn-play-short").style.display = "inline";
     } else if (window.getComputedStyle(minuteLongFrame).display != "none") {
-        console.log("clear long");
         // if (isPlaying) {
         // worker.postMessage("pause");
         const messLongStop = {
@@ -322,7 +308,6 @@ function playBtn() {
             document.querySelector("#time-js-focus").textContent
         );
 
-        console.log("play focus");
         // if (!isPlaying) {
         const enteredTimeFocus = parseInt(minuteFocusConvert);
         if (!isNaN(enteredTimeFocus) && enteredTimeFocus > 0) {
@@ -343,7 +328,6 @@ function playBtn() {
         minuteShortConvert = convertStringToTime(
             document.querySelector("#time-js-short").textContent
         );
-        console.log("play short");
 
         // if (!isPlaying) {
         const enteredTimeShort = parseInt(minuteShortConvert);
@@ -365,8 +349,6 @@ function playBtn() {
         minuteLongConvert = convertStringToTime(
             document.querySelector("#time-js-long").textContent
         );
-
-        console.log("play long");
 
         // if (!isPlaying) {
         const enteredTimeLong = parseInt(minuteLongConvert);
@@ -571,38 +553,38 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-document.getElementById("quotes").innerHTML = localStorage.clickcount
-    ? "“" + localStorage.clickcount + "”"
-    : "“" + "One day, all your hard work will pay off." + "”";
-document.getElementById("quotes-area").value = localStorage.clickcount
-    ? localStorage.clickcount
-    : "One day, all your hard work will pay off.";
+// document.getElementById("quotes").innerHTML = localStorage.clickcount
+//     ? "“" + localStorage.clickcount + "”"
+//     : "“" + "One day, all your hard work will pay off." + "”";
+// document.getElementById("quotes-area").value = localStorage.clickcount
+//     ? localStorage.clickcount
+//     : "One day, all your hard work will pay off.";
 
-document.getElementById("idSaveQuotes").addEventListener("click", clickA);
-function clickA() {
-    if (typeof Storage !== "undefined") {
-        if (localStorage.clickcount) {
-            if (document.getElementById("quotes-area").value.length == 0) {
-                localStorage.clickcount =
-                    "One day, all your hard work will pay off.";
-            } else {
-                localStorage.clickcount =
-                    document.getElementById("quotes-area").value;
-            }
-        } else {
-            if (document.getElementById("quotes-area").value.length == 0) {
-                localStorage.clickcount =
-                    "One day, all your hard work will pay off.";
-            } else {
-                localStorage.clickcount =
-                    document.getElementById("quotes-area").value;
-            }
-        }
-        document.getElementById("quotes").innerHTML =
-            "“" + localStorage.clickcount + "”";
-        document.getElementById("quotes-area").value = localStorage.clickcount;
-    } else {
-        document.getElementById("quotes").innerHTML =
-            "“" + document.getElementById("quotes-area").value + "”";
-    }
-}
+// document.getElementById("idSaveQuotes").addEventListener("click", clickA);
+// function clickA() {
+//     if (typeof Storage !== "undefined") {
+//         if (localStorage.clickcount) {
+//             if (document.getElementById("quotes-area").value.length == 0) {
+//                 localStorage.clickcount =
+//                     "One day, all your hard work will pay off.";
+//             } else {
+//                 localStorage.clickcount =
+//                     document.getElementById("quotes-area").value;
+//             }
+//         } else {
+//             if (document.getElementById("quotes-area").value.length == 0) {
+//                 localStorage.clickcount =
+//                     "One day, all your hard work will pay off.";
+//             } else {
+//                 localStorage.clickcount =
+//                     document.getElementById("quotes-area").value;
+//             }
+//         }
+//         document.getElementById("quotes").innerHTML =
+//             "“" + localStorage.clickcount + "”";
+//         document.getElementById("quotes-area").value = localStorage.clickcount;
+//     } else {
+//         document.getElementById("quotes").innerHTML =
+//             "“" + document.getElementById("quotes-area").value + "”";
+//     }
+// }

@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
 Route::get('/admin', function () {
     return view('admin');
 });
+Route::post('/save-quotes', [App\Http\Controllers\QuoteController::class, 'store'])->name('save.quotes');
+
+
+// Route::get('/register', function () {
+//     return view('register');
+// })->name('register');
 
 // Route::get('/login', function () {
 //     return view('login');
@@ -28,3 +34,6 @@ Route::get('/admin', function () {
 // Route::get('/register', function () {
 //     return view('register');
 // });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

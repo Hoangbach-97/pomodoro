@@ -11,11 +11,8 @@ self.addEventListener(
             typeof message.value === "number" &&
             message.value > 0
         ) {
-            console.log("worker ping");
             remainingTime = message.value;
             if (remainingTime !== null) {
-                console.log("workerlevel 1");
-                console.log("workerlevel 2");
                 // Check if timer is not already running
                 intervalId = setInterval(function () {
                     remainingTime--;

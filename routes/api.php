@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+// Route::middleware('auth:sanctum')->post('/quotes', [App\Http\Controllers\QuoteController::class, 'getUserQuotes']);
+
+Route::post('register', [App\Http\Controllers\ApiRegisterController::class, 'register']);
+Route::post('login', [App\Http\Controllers\ApiAuthController::class, 'login']);
+Route::middleware('auth:sanctum')->post('logout', [App\Http\Controllers\ApiAuthController::class, 'logout']);
+Route::post('save-quote', [App\Http\Controllers\ApiQuoteController::class, 'storeByRequest']);
+Route::middleware('auth:sanctum')->get('user-info', [App\Http\Controllers\ApiUserInfoController::class, 'getUserInfo']);
