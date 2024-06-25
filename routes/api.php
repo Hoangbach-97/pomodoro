@@ -22,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [App\Http\Controllers\ApiRegisterController::class, 'register']);
 Route::post('login', [App\Http\Controllers\ApiAuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('logout', [App\Http\Controllers\ApiAuthController::class, 'logout']);
+Route::post('logout', [App\Http\Controllers\ApiAuthController::class, 'logout'])->middleware('auth:sanctum');
+// Route::middleware(['auth:sanctum', 'force.json'])->group(function () {
+//     Route::post('logout', [App\Http\Controllers\ApiAuthController::class, 'logout']);
+//     // Other protected routes
+// });
 Route::post('save-quote', [App\Http\Controllers\ApiQuoteController::class, 'storeByRequest']);
 Route::middleware('auth:sanctum')->get('user-info', [App\Http\Controllers\ApiUserInfoController::class, 'getUserInfo']);
